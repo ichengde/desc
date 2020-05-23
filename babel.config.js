@@ -3,7 +3,15 @@
 module.exports = {
   plugins: [
     '@babel/plugin-syntax-jsx',
-    '@babel/plugin-transform-react-jsx',
+    [
+      "@babel/plugin-transform-react-jsx",
+      {
+        "throwIfNamespace": false,
+        "runtime": "classic", // defaults to classic
+        "importSource": "custom-jsx-library", // defaults to react
+        "pragma": "Desc"
+      }
+    ],
     // '@babel/plugin-transform-flow-strip-types',
     ['@babel/plugin-proposal-class-properties', { loose: true }],
     // 'syntax-trailing-function-commas',
